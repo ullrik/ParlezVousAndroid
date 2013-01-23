@@ -22,5 +22,6 @@
     <string name="rafraichir">Rafraichir</string>
     
 	<string name="main_empty_list">Attendez le rafraîchissement des messages.</string>
-    
+    <string name="textfooter">PROPRETY OF MORIMAND</string>
+	
 </resources>

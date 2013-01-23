@@ -1,7 +1,6 @@
 package com.excilys.formation.parlezvous;
 
 import java.io.IOException;
-import java.net.URI;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -120,7 +119,22 @@ public class ParlezVousSend extends Activity {
 			DefaultHttpClient client = new DefaultHttpClient();
 			String query = "http://" + SERVER + "/message/"
 					+ prefshelper.getName() + "/" + prefshelper.getPassword()
-					+ "/" + Uri.encode(monMessage.replaceAll("\\n", "<br>"))/*.replaceAll("\\n", "%3Cbr%3E").replace(" ", "%20")*/;
+					+ "/" + Uri.encode(monMessage.replaceAll("\\n", "<br>"))/*
+																			 * .
+																			 * replaceAll
+																			 * (
+																			 * "\\n"
+																			 * ,
+																			 * "%3Cbr%3E"
+																			 * )
+																			 * .
+																			 * replace
+																			 * (
+																			 * " "
+																			 * ,
+																			 * "%20"
+																			 * )
+																			 */;
 			HttpGet httpGet = new HttpGet(query);
 
 			String content = null;

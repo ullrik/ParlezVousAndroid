@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="#F2EFDF"
+    android:background="@color/backgroundColor"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
@@ -11,15 +11,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/bonjour"
-        android:textColor="#413659"
-        android:textSize="30sp" />
+        android:textColor="@color/tvColor"
+        android:textSize="@dimen/tvHeaderSize" />
 
     <TextView
         android:id="@+id/textUserNameConnect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#413659"
-        android:textSize="30sp" />
+        android:textColor="@color/tvColor"
+        android:textSize="@dimen/tvHeaderSize" />
 
     <Button
         android:id="@+id/buttonEnvoyerMessage"
@@ -28,7 +28,7 @@
         android:layout_marginTop="100dp"
         android:background="@drawable/buttoncustom"
         android:text="@string/sendMessage"
-        android:textColor="@color/textColor"
+        android:textColor="@color/btnColor"
         android:textSize="20sp" />
 
     <Button
@@ -38,8 +38,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/buttoncustom"
         android:text="@string/listMessage"
-        android:textColor="@color/textColor"
+        android:textColor="@color/btnColor"
         android:textSize="20sp" />
-
 
 </LinearLayout>

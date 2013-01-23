@@ -67,13 +67,13 @@ public class ParlezVousActivityTask extends AsyncTask<String, String, Boolean> {
 	protected void onPostExecute(Boolean result) {
 		String message;
 		if (result) {
-			message = "user connected";
+			message = "Utilisateur connecté";
 			Intent intent = new Intent(context, ParlezVousRedirect.class);
 			prefshelper = new PrefsHelper(context);
 			prefshelper.saveUser(username, password);
 			activity.startActivity(intent);
 		} else {
-			message = "user not connected";
+			message = "Identifiant incorrecte !";
 		}
 		loading.setVisibility(View.INVISIBLE);
 		Toast.makeText(context, message, Toast.LENGTH_LONG).show();

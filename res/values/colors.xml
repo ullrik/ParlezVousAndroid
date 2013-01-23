@@ -2,18 +2,25 @@
 <resources>
 
     <color name="background">#0ea2f2</color>
+    <color name="backgroundColor">#F2EFDF</color>
+    
+    <color name="btnColor">#F2EFDF</color>
+    <color name="tvColor">#413659</color>
+    <color name="tvHeaderColor">#F2EFDF</color>
+    <color name="HeaderColor">#9BBFAB</color>
 
+    <dimen name="tvSize">20sp</dimen>
+    <dimen name="tvHeaderSize">28sp</dimen>
+
+    <color name="textFieldColor">#000</color>
+    <color name="textShadow">#FFF</color>
+    <color name="listViewBg">#DADFEE</color>
+    <color name="sendLightColor">#9BBFAB</color>
+    <color name="sendMeduimColor">#9BBFAB</color>
+    <color name="sendDarkColor">#9BBFAB</color>
+    <color name="barDarkColor">#9BBFAB</color>
+    <color name="barMeduimColor">#9BBFAB</color>
+    <color name="barLightColor">#9BBFAB</color>
     
 	<color name="textColor">#F2EFDF</color>
-	<color name="textFieldColor">#000</color>
-	<color name="textShadow">#FFF</color>
-	<color name="listViewBg">#DADFEE</color>
-
-	<color name="sendLightColor">#9BBFAB</color>
-	<color name="sendMeduimColor">#9BBFAB</color>
-	<color name="sendDarkColor">#9BBFAB</color>
-
-	<color name="barDarkColor">#9BBFAB</color>
-	<color name="barMeduimColor">#9BBFAB</color>
-	<color name="barLightColor">#9BBFAB</color>
 </resources>

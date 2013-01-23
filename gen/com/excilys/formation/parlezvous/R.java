@@ -11,17 +11,26 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int HeaderColor=0x7f040005;
         public static final int background=0x7f040000;
-        public static final int barDarkColor=0x7f040008;
-        public static final int barLightColor=0x7f04000a;
-        public static final int barMeduimColor=0x7f040009;
-        public static final int listViewBg=0x7f040004;
-        public static final int sendDarkColor=0x7f040007;
-        public static final int sendLightColor=0x7f040005;
-        public static final int sendMeduimColor=0x7f040006;
-        public static final int textColor=0x7f040001;
-        public static final int textFieldColor=0x7f040002;
-        public static final int textShadow=0x7f040003;
+        public static final int backgroundColor=0x7f040001;
+        public static final int barDarkColor=0x7f04000c;
+        public static final int barLightColor=0x7f04000e;
+        public static final int barMeduimColor=0x7f04000d;
+        public static final int btnColor=0x7f040002;
+        public static final int listViewBg=0x7f040008;
+        public static final int sendDarkColor=0x7f04000b;
+        public static final int sendLightColor=0x7f040009;
+        public static final int sendMeduimColor=0x7f04000a;
+        public static final int textColor=0x7f04000f;
+        public static final int textFieldColor=0x7f040006;
+        public static final int textShadow=0x7f040007;
+        public static final int tvColor=0x7f040003;
+        public static final int tvHeaderColor=0x7f040004;
+    }
+    public static final class dimen {
+        public static final int tvHeaderSize=0x7f050001;
+        public static final int tvSize=0x7f050000;
     }
     public static final class drawable {
         public static final int border=0x7f020000;
@@ -36,60 +45,57 @@ public final class R {
         public static final int speech_bubble_orange=0x7f020009;
     }
     public static final class id {
-        public static final int bottom_write_bar=0x7f07000e;
-        public static final int btnRefresh=0x7f07000f;
-        public static final int buttonEnvoyerMessage=0x7f070001;
-        public static final int buttonListeMessage=0x7f070002;
-        public static final int buttonSend=0x7f07000d;
-        public static final int clean_button=0x7f07000a;
-        public static final int content=0x7f070005;
-        public static final int deconnexion=0x7f070011;
-        public static final int editTextMessage=0x7f07000c;
-        public static final int error_message=0x7f070008;
-        public static final int footer=0x7f070009;
-        public static final int header=0x7f070003;
-        public static final int loading=0x7f070004;
-        public static final int logout=0x7f070014;
-        public static final int menu_settings=0x7f070013;
-        public static final int message_text=0x7f070012;
-        public static final int password_field=0x7f070007;
-        public static final int progressBarListMessage=0x7f070010;
-        public static final int send_button=0x7f07000b;
-        public static final int textUserNameConnect=0x7f070000;
-        public static final int username_field=0x7f070006;
+        public static final int bottom_write_bar=0x7f08000e;
+        public static final int btnRefresh=0x7f08000f;
+        public static final int buttonEnvoyerMessage=0x7f080001;
+        public static final int buttonListeMessage=0x7f080002;
+        public static final int buttonSend=0x7f08000d;
+        public static final int clean_button=0x7f080009;
+        public static final int content=0x7f08000b;
+        public static final int editTextMessage=0x7f08000c;
+        public static final int error_message=0x7f080008;
+        public static final int footer=0x7f080005;
+        public static final int header=0x7f080003;
+        public static final int loading=0x7f080004;
+        public static final int menulogout=0x7f080012;
+        public static final int message_text=0x7f080011;
+        public static final int password_field=0x7f080007;
+        public static final int progressBarListMessage=0x7f080010;
+        public static final int send_button=0x7f08000a;
+        public static final int textUserNameConnect=0x7f080000;
+        public static final int username_field=0x7f080006;
     }
     public static final class layout {
         public static final int activity_connect=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int activity_send=0x7f030002;
         public static final int main=0x7f030003;
-        public static final int menu=0x7f030004;
-        public static final int sms_row=0x7f030005;
+        public static final int sms_row=0x7f030004;
     }
     public static final class menu {
-        public static final int activity_test=0x7f060000;
-        public static final int menu=0x7f060001;
+        public static final int menu=0x7f070000;
     }
     public static final class string {
-        public static final int app_name=0x7f050001;
-        public static final int bonjour=0x7f05000e;
-        public static final int clean=0x7f050005;
-        public static final int connection_form=0x7f050004;
-        public static final int deconnexion=0x7f05000f;
-        public static final int formulaire_de_connexion=0x7f050003;
-        public static final int hello=0x7f050000;
-        public static final int hello_world=0x7f05000b;
-        public static final int listMessage=0x7f050011;
-        public static final int main_empty_list=0x7f050013;
-        public static final int menu_settings=0x7f05000c;
-        public static final int new_txt=0x7f05000a;
-        public static final int no_empty_fields=0x7f050009;
-        public static final int password=0x7f050008;
-        public static final int rafraichir=0x7f050012;
-        public static final int replacement_text=0x7f050002;
-        public static final int send=0x7f050006;
-        public static final int sendMessage=0x7f050010;
-        public static final int title_activity_test=0x7f05000d;
-        public static final int username=0x7f050007;
+        public static final int app_name=0x7f060001;
+        public static final int bonjour=0x7f06000e;
+        public static final int clean=0x7f060005;
+        public static final int connection_form=0x7f060004;
+        public static final int deconnexion=0x7f06000f;
+        public static final int formulaire_de_connexion=0x7f060003;
+        public static final int hello=0x7f060000;
+        public static final int hello_world=0x7f06000b;
+        public static final int listMessage=0x7f060011;
+        public static final int main_empty_list=0x7f060013;
+        public static final int menu_settings=0x7f06000c;
+        public static final int new_txt=0x7f06000a;
+        public static final int no_empty_fields=0x7f060009;
+        public static final int password=0x7f060008;
+        public static final int rafraichir=0x7f060012;
+        public static final int replacement_text=0x7f060002;
+        public static final int send=0x7f060006;
+        public static final int sendMessage=0x7f060010;
+        public static final int textfooter=0x7f060014;
+        public static final int title_activity_test=0x7f06000d;
+        public static final int username=0x7f060007;
     }
 }

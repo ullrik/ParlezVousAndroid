@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -22,6 +24,7 @@ public class ParlezVousActivity extends Activity {
 	private Button sendButton;
 	private ProgressBar loading;
 	private TextView errorMessage;
+	private LinearLayout mainLayout;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,12 @@ public class ParlezVousActivity extends Activity {
 			}
 		});
 
+		/*usernameField.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				mainLayout.setVisibility(LinearLayout.);
+			}
+		});*/
+		
 		sendButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				if (hasEmptyFields()) {
@@ -70,6 +79,8 @@ public class ParlezVousActivity extends Activity {
 		sendButton = (Button) findViewById(R.id.send_button);
 		loading = (ProgressBar) findViewById(R.id.loading);
 		errorMessage = (TextView) findViewById(R.id.error_message);
+		mainLayout = (LinearLayout)this.findViewById(R.id.header);
+
 	}
 
 	private boolean hasEmptyFields() {

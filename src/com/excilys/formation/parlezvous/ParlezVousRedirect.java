@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -56,33 +55,6 @@ public class ParlezVousRedirect extends Activity {
 			}
 		});
 
-		/*
-		 * deconnexion.setOnClickListener(new OnClickListener() { public void
-		 * onClick(View v) {
-		 * 
-		 * AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-		 * context); // set title alertDialogBuilder.setTitle("DÈconnecter"); //
-		 * Voulez-vous vous déconnecter ? // set dialog message
-		 * alertDialogBuilder.setMessage("Voulez-vous vous dÈconnecter ?");
-		 * alertDialogBuilder.setCancelable(false);
-		 * alertDialogBuilder.setPositiveButton("Yes", new
-		 * DialogInterface.OnClickListener() { public void
-		 * onClick(DialogInterface dialog, int id) { // if this button is
-		 * clicked, close // current activity ParlezVousRedirect.this.finish();
-		 * Toast.makeText(ParlezVousRedirect.this, "Deconnecter",
-		 * Toast.LENGTH_SHORT) .show();
-		 * 
-		 * } }); alertDialogBuilder.setNegativeButton("No", new
-		 * DialogInterface.OnClickListener() { public void
-		 * onClick(DialogInterface dialog, int id) { // if this button is
-		 * clicked, just close // the dialog box and do nothing dialog.cancel();
-		 * } });
-		 * 
-		 * // create alert dialog AlertDialog alertDialog =
-		 * alertDialogBuilder.create();
-		 * 
-		 * // show it alertDialog.show(); } });
-		 */
 	}
 
 	/*
@@ -92,29 +64,19 @@ public class ParlezVousRedirect extends Activity {
 	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// TODO Auto-generated method stub
-		// Création d'un MenuInflater qui va permettre d'instancier un Menu XML
-		// en un objet Menu
-		MenuInflater inflater = getMenuInflater();
-		// Instanciation du menu XML spécifier en un objet Menu
-		inflater.inflate(R.layout.menu, menu);
-
+		getMenuInflater().inflate(R.menu.menu, menu);
 		return true;
 	}
 
-	// Méthode qui se déclenchera au clic sur un item
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// On regarde quel item a été cliqué grâce à son id et on déclenche une
-		// action
-		switch (item.getItemId()) {
-		case R.id.deconnexion:
-			// Pour la deconnexion
-			prefshelper.saveUser("", "");
+		if (item.getItemId() == R.id.menulogout) {
 			Intent pageSend = new Intent(ParlezVousRedirect.this,
 					ParlezVousActivity.class);
+			prefshelper.removeUser();
 			startActivity(pageSend);
-			return true;
 		}
-		return false;
+
+		return super.onOptionsItemSelected(item);
 	}
 }
