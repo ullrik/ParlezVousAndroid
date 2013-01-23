@@ -1,0 +1,56 @@
+10
+
+dir
+0
+https://woped.googlecode.com/svn/trunk/ParlezVousActivity/bin/res
+https://woped.googlecode.com/svn
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+aec056f5-9cf6-eda4-8b6a-765025632b4c
+
+drawable-hdpi
+dir
+
+
+
+add
+
+drawable-ldpi
+dir
+
+
+
+add
+
+drawable-mdpi
+dir
+
+
+
+add
+
+drawable-xhdpi
+dir
+
+
+
+add
+

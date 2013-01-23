@@ -1,0 +1,70 @@
+package com.excilys.formation.parlezvous;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.DashPathEffect;
+import android.graphics.Paint;
+import android.graphics.Paint.Style;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.SurfaceView;
+import android.view.View;
+
+public class ParlezVousView extends SurfaceView {
+
+	private Bitmap mBitmap;
+	
+	private int mX;
+	private int mY;
+
+	Paint paint = new Paint();
+	private final String TAG = ParlezVousActivity.class.getSimpleName();
+
+	public ParlezVousView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	}
+
+	
+	
+	@Override
+	protected void onDraw(Canvas canvas) {
+		super.onDraw(canvas);
+        Paint p = new Paint();
+        p.setColor(Color.RED);
+        DashPathEffect dashPath = new DashPathEffect(new float[]{5,5}, (float)1.0);
+
+        p.setPathEffect(dashPath);
+        p.setStyle(Style.FILL_AND_STROKE);
+        canvas.drawCircle(0, 0, 50, p);
+
+        invalidate();
+		// Dessiner ici !
+	}
+
+	public boolean onTouch(View v, MotionEvent event) {
+		mX = (int) event.getX() - mBitmap.getWidth() / 2;
+		mY = (int) event.getY() - mBitmap.getHeight() / 2;
+		return super.onTouchEvent(event);
+		
+		/*switch (event.getAction()) {
+		case MotionEvent.ACTION_DOWN: {
+            Log.e(TAG, " getX: " + event.getX());
+            break;
+        }
+		case MotionEvent.ACTION_MOVE: {
+            Log.e(TAG, " getX: " + event.getX());
+            break;
+        }
+		case MotionEvent.ACTION_UP:
+			// rel‰chement du doigt
+            Log.e(TAG, " getX: " + event.getX());
+			break;
+		}
+
+		return true;*/
+	}
+
+}

@@ -1,0 +1,158 @@
+package com.excilys.formation.parlezvous;
+
+import java.io.IOException;
+import java.net.URI;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import android.app.Activity;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.excilys.formation.parlezvous.utils.InputStreamToString;
+import com.excilys.formation.parlezvous.utils.PrefsHelper;
+
+public class ParlezVousSend extends Activity {
+
+	private final String TAG = ParlezVousSend.class.getSimpleName();
+
+	private EditText message;
+	private Button sendButton;
+	// private TextView errorMessage;
+	private PrefsHelper prefshelper;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Log.i(TAG, "onCreate!");
+		setContentView(R.layout.activity_send);
+
+		message = (EditText) findViewById(R.id.editTextMessage);
+		sendButton = (Button) findViewById(R.id.buttonSend);
+		prefshelper = new PrefsHelper(getApplicationContext());
+
+		// errorMessage = (TextView) findViewById(R.id.error_message);
+
+		actionClick();
+
+	}
+
+	private void actionClick() {
+		// TODO Auto-generated method stub
+
+		sendButton.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				if (hasEmptyFields()) {
+					Toast.makeText(ParlezVousSend.this,
+							"Votre message est vide !", Toast.LENGTH_SHORT)
+							.show();
+
+					// errorMessage.setVisibility(View.VISIBLE);
+				} else {
+					String monMessage = message.getText().toString();
+					new ParlezVousTask().execute(monMessage);
+				}
+			}
+		});
+	}
+
+	private boolean hasEmptyFields() {
+		return TextUtils.isEmpty(message.getText());
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		Log.i(TAG, "onPause!");
+	}
+
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		Log.i(TAG, "onRestart!");
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+		Log.i(TAG, "onRestoreInstanceState!");
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i(TAG, "onResume!");
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		Log.i(TAG, "onSaveInstanceState!");
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		Log.i(TAG, "onDestroy!");
+	}
+
+	private class ParlezVousTask extends AsyncTask<String, String, Boolean> {
+
+		public static final String SERVER = "parlezvous.herokuapp.com";
+		public String monMessage;
+
+		@Override
+		protected Boolean doInBackground(String... params) {
+			monMessage = params[0];
+
+			DefaultHttpClient client = new DefaultHttpClient();
+			String query = "http://" + SERVER + "/message/"
+					+ prefshelper.getName() + "/" + prefshelper.getPassword()
+					+ "/" + Uri.encode(monMessage.replaceAll("\\n", "<br>"))/*.replaceAll("\\n", "%3Cbr%3E").replace(" ", "%20")*/;
+			HttpGet httpGet = new HttpGet(query);
+
+			String content = null;
+			try {
+				HttpResponse response = client.execute(httpGet);
+				HttpEntity entity = response.getEntity();
+				content = InputStreamToString.convert(entity.getContent());
+			} catch (ClientProtocolException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			return Boolean.valueOf(content);
+		}
+
+		@Override
+		protected void onPostExecute(Boolean result) {
+			String messageNotification;
+			if (result) {
+				messageNotification = "message erreur";
+				// intent.setAction("com.excilys.formation.parlezvous.ParlezVousRedirect.MY_OWN_ACTION");
+			} else {
+				messageNotification = "message envoyé";
+			}
+			Toast.makeText(ParlezVousSend.this, messageNotification,
+					Toast.LENGTH_SHORT).show();
+			if (!result)
+				message.setText("");
+
+		}
+
+	}
+
+}

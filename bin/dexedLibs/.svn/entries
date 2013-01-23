@@ -1,0 +1,42 @@
+10
+
+dir
+0
+https://woped.googlecode.com/svn/trunk/ParlezVousActivity/bin/dexedLibs
+https://woped.googlecode.com/svn
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+aec056f5-9cf6-eda4-8b6a-765025632b4c
+
+android-support-v4-b52279eb8b023f8e824e8189581bf9fc.jar
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+

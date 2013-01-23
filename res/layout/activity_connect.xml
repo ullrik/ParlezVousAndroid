@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#F2EFDF"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/bonjour"
+        android:textColor="#413659"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textUserNameConnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#413659"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/buttonEnvoyerMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/buttoncustom"
+        android:text="@string/sendMessage"
+        android:textColor="@color/textColor"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/buttonListeMessage"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/buttoncustom"
+        android:text="@string/listMessage"
+        android:textColor="@color/textColor"
+        android:textSize="20sp" />
+
+
+</LinearLayout>
