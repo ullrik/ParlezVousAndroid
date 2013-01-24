@@ -41,6 +41,13 @@ public class ParlezVousActivityTask extends AsyncTask<String, String, Boolean> {
 		loading.setVisibility(View.VISIBLE);
 	}
 
+	/*
+	 * Connexion au site avec methode GET pour la connexion
+	 * URL : http://[SERVER]/connect/[Login]/[MDP] 
+	 * Variable :
+	 * 		params[0] => username
+	 * 		params[2] => password
+	 */
 	@Override
 	protected Boolean doInBackground(String... params) {
 		username = params[0];
@@ -63,11 +70,16 @@ public class ParlezVousActivityTask extends AsyncTask<String, String, Boolean> {
 		return Boolean.valueOf(content);
 	}
 
+	/*
+	 * Si on recupére un contenu (True) les informations utilisateur sont correcter
+	 * Sinon il y a une erreur dans les identifiants
+	 */
 	@Override
 	protected void onPostExecute(Boolean result) {
 		String message;
 		if (result) {
 			message = "Utilisateur connecté";
+			// Stocke les variable username et password dans prefshelper
 			Intent intent = new Intent(context, ParlezVousRedirect.class);
 			prefshelper = new PrefsHelper(context);
 			prefshelper.saveUser(username, password);
@@ -76,6 +88,7 @@ public class ParlezVousActivityTask extends AsyncTask<String, String, Boolean> {
 			message = "Identifiant incorrecte !";
 		}
 		loading.setVisibility(View.INVISIBLE);
+		// Affiche un message à l'utilisateur pour le renseigné
 		Toast.makeText(context, message, Toast.LENGTH_LONG).show();
 	}
 }

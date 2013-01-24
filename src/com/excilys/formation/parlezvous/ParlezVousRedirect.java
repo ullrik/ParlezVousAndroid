@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,8 +16,9 @@ import com.excilys.formation.parlezvous.utils.PrefsHelper;
 
 public class ParlezVousRedirect extends Activity {
 
-	final Context context = this;
+	private final String TAG = ParlezVousSend.class.getSimpleName();
 
+	final Context context = this;
 	private TextView textUserNameConnect;
 	private Button envoyerMessage;
 	private Button listeMessage;
@@ -24,20 +26,22 @@ public class ParlezVousRedirect extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		Log.i(TAG, "onCreate!");
 
+		// Utilisation du layout activity_redirect
 		setContentView(R.layout.activity_redirect);
-		prefshelper = new PrefsHelper(ParlezVousRedirect.this);
+		// Initialisation pour travaillé avec les composants du layout
+		initialize();
+		// Methode qui contient les actions click bouton
+		actionClick();
 
-		envoyerMessage = (Button) findViewById(R.id.buttonEnvoyerMessage);
-		listeMessage = (Button) findViewById(R.id.buttonListeMessage);
-		textUserNameConnect = (TextView) findViewById(R.id.textUserNameConnect);
-		textUserNameConnect.setText(prefshelper.getName());
+	}
 
+	private void actionClick() {
+		// Action qui renvoye sur la page Envoyer un message
 		envoyerMessage.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// setContentView(R.layout.activity_send);
 				Intent pageSend = new Intent(ParlezVousRedirect.this,
 						ParlezVousSend.class);
 				startActivity(pageSend);
@@ -45,22 +49,29 @@ public class ParlezVousRedirect extends Activity {
 			}
 		});
 
+		// Action qui renvoye sur la page Liste des messages
 		listeMessage.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// setContentView(R.layout.activity_send);
 				Intent pageSend = new Intent(ParlezVousRedirect.this,
 						ParlezVousList.class);
 				startActivity(pageSend);
 
 			}
 		});
+		
+	}
 
+	// Initialisation pour travaillé avec les composants du layout
+	private void initialize() {
+		prefshelper = new PrefsHelper(ParlezVousRedirect.this);
+		envoyerMessage = (Button) findViewById(R.id.buttonEnvoyerMessage);
+		listeMessage = (Button) findViewById(R.id.buttonListeMessage);
+		textUserNameConnect = (TextView) findViewById(R.id.textUserNameConnect);
+		textUserNameConnect.setText(prefshelper.getName());
 	}
 
 	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
+	 * Utilisation du bouton Menu d'Android
 	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,6 +79,9 @@ public class ParlezVousRedirect extends Activity {
 		return true;
 	}
 
+	/*
+	 * Va charger le menu menulogout pour l'option Déconnexion
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == R.id.menulogout) {

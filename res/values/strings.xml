@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World, ParlezVousActivity!</string>
-    <string name="app_name">ParlezVous</string>
+    <string name="app_name">Message Sync Android</string>
     <string name="replacement_text">Texte de remplacement</string>
     <string name="formulaire_de_connexion">Formulaire de connexion</string>
     <string name="connection_form">Formulaire de connexion</string>

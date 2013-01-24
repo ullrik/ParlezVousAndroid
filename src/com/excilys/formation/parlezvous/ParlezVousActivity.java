@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -14,7 +15,17 @@ import android.widget.TextView;
 import com.excilys.formation.parlezvous.utils.ParlezVousActivityTask;
 import com.excilys.formation.parlezvous.utils.PrefsHelper;
 
+/**
+ * ParlezVousActivity est une classe qui va traiter le module de connexion On
+ * recupére : Login MDP
+ * 
+ * @author Mickael MORISSEAU
+ * @author Julian NORMAND
+ * 
+ */
 public class ParlezVousActivity extends Activity {
+
+	private final String TAG = ParlezVousSend.class.getSimpleName();
 
 	private EditText usernameField;
 	private EditText passwordField;
@@ -26,10 +37,22 @@ public class ParlezVousActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Log.i(TAG, "onCreate!");
+
+		// Utilisation du layout activity_main
 		setContentView(R.layout.activity_main);
+		// Initialisation pour travaillé avec les composants du layout
 		initialize();
+		/*
+		 * PrefsHelper permet de d'enregister des variables qui seront
+		 * disponible dans les autres classe via un appel de PrefsHelper
+		 */
 		PrefsHelper prefshelper = new PrefsHelper(ParlezVousActivity.this);
 
+		/*
+		 * Verrification du contenu des variable prefshelper.getName()
+		 * prefshelper.getPassword()
+		 */
 		if ((prefshelper.getName() != "") && (prefshelper.getPassword() != "")
 				&& (prefshelper.getName() != "name")
 				&& (prefshelper.getPassword() != "password")
@@ -40,7 +63,13 @@ public class ParlezVousActivity extends Activity {
 			startActivity(intent);
 			finish();
 		}
+		// Methode qui contient les actions click bouton
+		actionClick();
+	}
 
+	private void actionClick() {
+		// Action qui supprime le contenu dans les champs Login et MDP via le
+		// bouton Vider
 		cleanButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				usernameField.setText("");
@@ -49,10 +78,10 @@ public class ParlezVousActivity extends Activity {
 		});
 
 		/*
-		 * usernameField.setOnClickListener(new OnClickListener() { public void
-		 * onClick(View v) { usernameField.setFocusable(true); } });
+		 * Action qui recupére le contenu dans les champs Login et MDP via le
+		 * bouton Connexion Et renvoie à la classe ParlezVousActivityTask pour
+		 * le traitement
 		 */
-
 		sendButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				if (hasEmptyFields()) {
@@ -66,14 +95,10 @@ public class ParlezVousActivity extends Activity {
 				}
 			}
 		});
+		
 	}
 
-	/*
-	 * public void setItemsCanFocus(boolean itemsCanFocus) { usernameField =
-	 * itemsCanFocus; if (!itemsCanFocus) {
-	 * setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS); } }
-	 */
-
+	// Initialisation pour travaillé avec les composants du layout
 	private void initialize() {
 		usernameField = (EditText) findViewById(R.id.username_field);
 		passwordField = (EditText) findViewById(R.id.password_field);

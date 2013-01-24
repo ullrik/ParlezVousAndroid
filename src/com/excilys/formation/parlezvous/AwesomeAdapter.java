@@ -13,7 +13,8 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 /**
- * AwesomeAdapter is a Custom class to implement custom row in ListView
+ * AwesomeAdapter est une classe personnalisée pour la mise en œuvre de ligne
+ * personnalisée dans ListView
  * 
  * @author Adil Soomro
  * 
@@ -50,32 +51,37 @@ public class AwesomeAdapter extends BaseAdapter {
 		} else
 			holder = (ViewHolder) convertView.getTag();
 
+		// Converti notre chaine de caractere String au fromat HTML.
 		holder.message.setText(Html.fromHtml(message.getMessage()));
 
 		LayoutParams lp = (LayoutParams) holder.message.getLayoutParams();
-		// check if it is a status message then remove background, and change
-		// text color.
+		/*
+		 * Vérifie l'état du message puis retire le fond, et change la couleur
+		 * du texte.
+		 */
 		if (message.isStatusMessage()) {
 			holder.message.setBackgroundDrawable(null);
 			lp.gravity = Gravity.LEFT;
-			// holder.message.setTextColor(R.color.textFieldColor);
 		} else {
-			// Check whether message is mine to show green background and align
-			// to right
+			/*
+			 * Si je suis l'expéditeur du message alors la couleur est verte et
+			 * affiché à droite
+			 */
 			if (message.isMine()) {
 				holder.message
 						.setBackgroundResource(R.drawable.speech_bubble_green);
 				lp.gravity = Gravity.RIGHT;
 			}
-			// If not mine then it is from sender to show orange background and
-			// align to left
+			/*
+			 * Si je ne suis pas l'expéditeur du message alors la couleur est
+			 * orange et affiché à gauche
+			 */
 			else {
 				holder.message
 						.setBackgroundResource(R.drawable.speech_bubble_orange);
 				lp.gravity = Gravity.LEFT;
 			}
 			holder.message.setLayoutParams(lp);
-			// holder.message.setTextColor(R.color.textColor);
 		}
 		return convertView;
 	}
@@ -85,7 +91,7 @@ public class AwesomeAdapter extends BaseAdapter {
 	}
 
 	public long getItemId(int position) {
-		// Unimplemented, because we aren't using Sqlite.
+		// Non implémentée, parce que nous n'utilisons pas SQLite.
 		return 0;
 	}
 
