@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Layout pour la liste des messages -->
+<!-- Inclut une listView pour voir tous les messages -->
+<!-- ainsi qu'un bouton pour rafraichir la list de message -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/listViewBg"
     android:orientation="vertical" >
 
+    <!-- Le LinearLayout qui inclut le bouton pour rafraichir la list de message -->
     <LinearLayout
         android:id="@+id/bottom_write_bar"
         android:layout_width="fill_parent"
@@ -12,6 +16,7 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/message_bar" >
 
+        <!-- Le bouton en lui même -->
         <Button
             android:id="@+id/btnRefresh"
             android:layout_width="fill_parent"
@@ -26,21 +31,23 @@
             android:text="@string/rafraichir"
             android:textColor="#FFF" />
     </LinearLayout>
-
+    
+    <!-- La ListView -->
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
         android:layout_above="@id/bottom_write_bar"
         android:layout_alignParentTop="true"
+        android:animateLayoutChanges="true"
         android:cacheColorHint="#00000000"
         android:divider="#00000000"
         android:listSelector="#00000000"
         android:stackFromBottom="true"
-        android:transcriptMode="alwaysScroll"
-        android:animateLayoutChanges="true" >
+        android:transcriptMode="alwaysScroll" >
     </ListView>
-
+    
+    <!-- Un TextView pour afficher un message quand le fil de la conversation est en cours d'affichage -->
     <TextView
         android:id="@android:id/empty"
         android:layout_width="fill_parent"
@@ -49,7 +56,8 @@
         android:layout_alignParentTop="true"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/main_empty_list" />
-
+    
+    <!-- Une barre de progression pour le chargement du fil de la conversation -->
     <ProgressBar
         android:id="@+id/progressBarListMessage"
         style="?android:attr/progressBarStyleLarge"

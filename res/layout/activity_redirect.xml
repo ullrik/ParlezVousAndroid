@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Le Layout une fois que nous sommes connecter, ce layout inclut deux TextView et deux Button pour les redirection -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
@@ -6,6 +7,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
+    <!-- Ce TextView est juste un text de bienvenue (il n'a pas d'id) -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,6 +16,7 @@
         android:textColor="@color/tvColor"
         android:textSize="@dimen/tvHeaderSize" />
 
+    <!-- Ce TextView affichera le nom de l'utilisateur, couplé avec celui ci dessus le rendu sera "Bienvenue Cedric" -->
     <TextView
         android:id="@+id/textUserNameConnect"
         android:layout_width="wrap_content"
@@ -21,6 +24,7 @@
         android:textColor="@color/tvColor"
         android:textSize="@dimen/tvHeaderSize" />
 
+    <!-- Bouton pour aller dans la partie "Envoie de message" -->
     <Button
         android:id="@+id/buttonEnvoyerMessage"
         android:layout_width="wrap_content"
@@ -31,6 +35,7 @@
         android:textColor="@color/btnColor"
         android:textSize="20sp" />
 
+    <!-- Bouton pour aller dans la partie de la reception des messages -->
     <Button
         android:id="@+id/buttonListeMessage"
         android:layout_width="150dp"

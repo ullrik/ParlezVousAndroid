@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Le Layout de la premiere activité : le Login. -->
+<!-- Toute le layout est dans une ScrollView -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -10,6 +12,8 @@
         android:background="@color/backgroundColor"
         android:paddingBottom="5dip" >
 
+        <!-- Le Header qui contient un titre avec une couleur de fond -->
+        <!-- ainsi qu'un barre de progression quand l'utilisateur tente de se connecter -->
         <LinearLayout
             android:id="@+id/header"
             android:layout_width="fill_parent"
@@ -39,6 +43,7 @@
                 android:visibility="invisible" />
         </LinearLayout>
 
+        <!-- Le Footer avec un TextView pour les droits d'auteur :) -->
         <LinearLayout
             android:id="@+id/footer"
             android:layout_width="fill_parent"
@@ -53,6 +58,7 @@
                 android:text="@string/textfooter" />
         </LinearLayout>
 
+        <!-- Le corps du layout avec plusieurs LinearLayout vertical et horizontal -->
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -62,6 +68,8 @@
             android:layout_marginRight="5dp"
             android:orientation="vertical" >
 
+            <!-- Le corps contient les champs TextView et EditText pour rentrer les données de l'utilisateur -->
+            <!-- ainsi qu'un dernier TextView pour la gesiton des erreurs -->
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -103,6 +111,7 @@
                     android:textColor="#413659" />
             </LinearLayout>
 
+            <!-- Les deux boutons pour accepter ou refuser de se connecter -->
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
