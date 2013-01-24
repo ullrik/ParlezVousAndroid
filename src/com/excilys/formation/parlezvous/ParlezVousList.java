@@ -42,7 +42,7 @@ public class ParlezVousList extends ListActivity {
 
 		//loading.setVisibility(View.VISIBLE);
 
-		setContentView(R.layout.main);
+		setContentView(R.layout.activity_list);
 		prefshelper = new PrefsHelper(getApplicationContext());
 		btnRefresh = (Button) findViewById(R.id.btnRefresh);
 		loading = (ProgressBar) findViewById(R.id.progressBarListMessage);

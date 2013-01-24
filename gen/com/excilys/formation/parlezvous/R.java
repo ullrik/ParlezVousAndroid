@@ -45,14 +45,14 @@ public final class R {
         public static final int speech_bubble_orange=0x7f020009;
     }
     public static final class id {
-        public static final int bottom_write_bar=0x7f08000e;
-        public static final int btnRefresh=0x7f08000f;
-        public static final int buttonEnvoyerMessage=0x7f080001;
-        public static final int buttonListeMessage=0x7f080002;
-        public static final int buttonSend=0x7f08000d;
+        public static final int bottom_write_bar=0x7f080000;
+        public static final int btnRefresh=0x7f080001;
+        public static final int buttonEnvoyerMessage=0x7f08000c;
+        public static final int buttonListeMessage=0x7f08000d;
+        public static final int buttonSend=0x7f080010;
         public static final int clean_button=0x7f080009;
-        public static final int content=0x7f08000b;
-        public static final int editTextMessage=0x7f08000c;
+        public static final int content=0x7f08000e;
+        public static final int editTextMessage=0x7f08000f;
         public static final int error_message=0x7f080008;
         public static final int footer=0x7f080005;
         public static final int header=0x7f080003;
@@ -60,16 +60,16 @@ public final class R {
         public static final int menulogout=0x7f080012;
         public static final int message_text=0x7f080011;
         public static final int password_field=0x7f080007;
-        public static final int progressBarListMessage=0x7f080010;
+        public static final int progressBarListMessage=0x7f080002;
         public static final int send_button=0x7f08000a;
-        public static final int textUserNameConnect=0x7f080000;
+        public static final int textUserNameConnect=0x7f08000b;
         public static final int username_field=0x7f080006;
     }
     public static final class layout {
-        public static final int activity_connect=0x7f030000;
+        public static final int activity_list=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int activity_send=0x7f030002;
-        public static final int main=0x7f030003;
+        public static final int activity_redirect=0x7f030002;
+        public static final int activity_send=0x7f030003;
         public static final int sms_row=0x7f030004;
     }
     public static final class menu {

@@ -27,7 +27,7 @@ public class ParlezVousRedirect extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_connect);
+		setContentView(R.layout.activity_redirect);
 		prefshelper = new PrefsHelper(ParlezVousRedirect.this);
 
 		envoyerMessage = (Button) findViewById(R.id.buttonEnvoyerMessage);
